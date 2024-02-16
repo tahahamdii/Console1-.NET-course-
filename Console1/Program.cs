@@ -1,40 +1,25 @@
-﻿using System;
+﻿using Console1;
+using System;
 
 class Program
 {
     static void Main()
     {
-        bool continueTransforming = true;
 
-        while (continueTransforming)
-        {
-            Console.WriteLine("Enter a string:");
-            string userInput = Console.ReadLine();
+        DateTime dateTime = new DateTime(1999, 12, 12);
 
-            // Transformation 1: Convert to Uppercase
-            string uppercaseString = userInput.ToUpper();
-            Console.WriteLine("Uppercase: " + uppercaseString);
+        Console.ReadLine("donner le matricule: ");
+        string matricule = string.Parse(Console.ReadLine());
+        Console.ReadLine("donner le nom: ");
+        string nom = Console.ReadLine();
+        Console.ReadLine("donner le prenom: ");
+        string prenom = Console.ReadLine();
+        
+        Console.ReadLine("donner l'indice: ");
+        int indice = int.Parse(Console.ReadLine());
+        Cadre c = new Cadre(matricule, nom, prenom, dateTime, indice);
+        Console.WriteLine(c.ToString());
+        Console.WriteLine("Salaire: " + c.GetSalaire());
 
-            // Transformation 2: Replace Spaces with Underscores
-            string underscoredString = userInput.Replace(' ', '_');
-            Console.WriteLine("Underscored: " + underscoredString);
-
-            // Transformation 3: Reverse the String
-            char[] charArray = userInput.ToCharArray();
-            Array.Reverse(charArray);
-            string reversedString = new string(charArray);
-            Console.WriteLine("Reversed: " + reversedString);
-
-            Console.WriteLine("Do you want to enter another string? (yes/no)");
-            string response = Console.ReadLine().ToLower();
-
-            if (response != "yes")
-            {
-                continueTransforming = false;
-            }
-        }
-
-        Console.WriteLine("Program finished. Press Enter to exit.");
-        Console.ReadLine(); // to keep the console window open
     }
 }
